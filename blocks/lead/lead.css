@@ -1,0 +1,16 @@
+.lead {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .lead {
+    display: grid;
+    grid-template-columns: 120px auto  150px;
+    grid-template-rows: 75px 75px;
+    grid-template-areas:
+    "lead-avatar lead-header lead-button-add"
+    "lead-avatar lead-subtitle lead-button-add";
+    align-items: center;
+  }
+}

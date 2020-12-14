@@ -1,0 +1,8 @@
+.lead__button {
+  transition: opacity .5s;
+}
+
+.lead__button:hover {
+  opacity: .6;
+  cursor: pointer;
+}

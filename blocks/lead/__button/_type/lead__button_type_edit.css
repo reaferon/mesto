@@ -1,0 +1,23 @@
+.lead__button_type_edit {
+  width: 18px;
+  height: 18px;
+  align-self: center;
+  background-color: transparent;
+  border: 1px solid #fff;
+  display: flex;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.lead__button_type_edit::before {
+  width: 12px;
+  height: 12px;
+  background-image: url(../../../../images/pen.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  content: '';
+  display: block;
+
+  
+}
