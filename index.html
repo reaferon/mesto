@@ -7,6 +7,18 @@
   <link href="./styles/index.css" rel="stylesheet">
 </head>
 <body class="body">
+  <div class="overlay">
+    <div class="popup">
+      <i class="popup__close" title="Закрыть"></i>
+      <form class="form" action="#" method="POST">
+        <p class="form__title">Редактировать профиль</p>
+        <input type="text" class="form__input form__input_field_name" placeholder="Имя">
+        <input type="text" class="form__input form__input_field_description" placeholder="Статус">
+        <button class="form__submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  
   <header class="header">
     <a href="#" class="header__logo" target="_blank"></a>
   </header>
@@ -20,7 +32,7 @@
       <img class="lead__avatar" src="./images/avatar.jpg" alt="Жак-Ив Кусто">
       <button class="lead__button lead__button_type_add"></button>
     </section>
-    <section class="gallery" style="display: none;">
+    <section class="gallery">
       <ul class="photos gallery__photos">
         <li class="card">
           <h2 class="card__title">Беломорск</h2>

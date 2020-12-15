@@ -1,0 +1,12 @@
+.card {
+  display: grid;
+  
+  grid-template-columns: auto 50px;
+  grid-template-areas:
+    "card-img card-img"
+    "card-title card-like";
+  flex-wrap: wrap;
+  border-radius: 10px;
+  background-color: #fff;
+  justify-content: space-between;
+}

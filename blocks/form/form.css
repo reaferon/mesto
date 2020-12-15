@@ -1,0 +1,12 @@
+.form {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 22px;
+}
+
+@media (min-width: 768px) {
+  .form {
+    padding: 36px 34px;
+  }
+}

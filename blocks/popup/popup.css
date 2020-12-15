@@ -1,0 +1,15 @@
+.popup {
+  min-width: 280px;
+  min-height: 195px;
+  background: #fff;
+  border-radius: 10px;
+  z-index: 3;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .popup {
+    min-width: 430px;
+    min-height: 330px;
+  }
+}

@@ -1,0 +1,9 @@
+.gallery__photos {
+  margin: 0 19px;
+
+}
+@media (min-width: 1024px) {
+  .gallery__photos {
+    margin: 0;
+  }
+}
