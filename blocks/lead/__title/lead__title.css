@@ -3,4 +3,7 @@
   font-weight: 500;
   margin: 0;
   line-height: 32px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

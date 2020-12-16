@@ -2,6 +2,14 @@
   order: 2;
   display: flex;
   justify-content: center;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .lead__header {
+    max-width: 550px;
+  }
 }
 
 @media (min-width: 1024px) {

@@ -1,4 +1,10 @@
 .overlay_active {
   opacity: 1;
   visibility: visible;
+  animation: overlay_on  .5s cubic-bezier(0.56, 0.1, 0.34, 0.91);
+}
+
+@keyframes overlay_on {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
