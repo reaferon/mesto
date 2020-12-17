@@ -8,48 +8,48 @@
 </head>
 <body class="body">
   <header class="header">
-    <a href="#" class="header__logo" target="_blank"></a>
+    <a href="" class="header__logo" target="_blank"></a>
   </header>
   <main class="main">
     <section class="lead">
       <div class="lead__header">
         <h1 class="lead__title">Жак-Ив Кусто</h1>
-        <button class="lead__button lead__button_type_edit" title="Редактировать профиль"></button>
+        <button type="button" class="lead__button lead__button_type_edit" title="Редактировать профиль"></button>
       </div>
       <p class="lead__subtitle">Исследователь океана</p>
       <img class="lead__avatar" src="./images/avatar.jpg" alt="Жак-Ив Кусто, Исследователь океана">
-      <button class="lead__button lead__button_type_add" title="Добавить запись"></button>
+      <button type="button" class="lead__button lead__button_type_add" title="Добавить запись"></button>
     </section>
     <section class="gallery">
-      <ul class="photos gallery__photos">
+      <ul class="gallery__photos">
         <li class="card">
           <h2 class="card__title">Беломорск</h2>
-          <button class="card__like"></button>
+          <button type="button" class="card__like"></button>
           <img src="./images/belmor.jpg" alt="Беломорск" class="card__img">
         </li>
         <li class="card">
           <h2 class="card__title">Колежма</h2>
-          <button class="card__like"></button>
+          <button type="button" class="card__like"></button>
           <img src="./images/kolezhma.jpg" alt="Колежма" class="card__img">
         </li>
         <li class="card">
           <h2 class="card__title">Ботанический сад</h2>
-          <button class="card__like"></button>
+          <button type="button" class="card__like"></button>
           <img src="./images/botsad.jpg" alt="Ботанический сад" class="card__img">
         </li>
         <li class="card">
           <h2 class="card__title">Москва</h2>
-          <button class="card__like"></button>
+          <button type="button" class="card__like"></button>
           <img src="./images/moscow.jpg" alt="Москва" class="card__img">
         </li>
         <li class="card">
           <h2 class="card__title">Санкт-Петербург</h2>
-          <button class="card__like"></button>
+          <button type="button" class="card__like"></button>
           <img src="./images/piter.jpg" alt="Санкт-Петербург" class="card__img">
         </li>
         <li class="card">
           <h2 class="card__title">Псков</h2>
-          <button class="card__like"></button>
+          <button type="button" class="card__like"></button>
           <img src="./images/pskov.jpg" alt="Псков" class="card__img">
         </li>
       </ul>
@@ -60,12 +60,12 @@
   </footer>
   <div class="overlay">
     <div class="popup">
-      <i class="popup__close" title="Закрыть"></i>
-      <form class="form" action="#" method="POST">
-        <p class="form__title">Редактировать профиль</p>
-        <input type="text" class="form__input form__input_field_name" placeholder="Имя">
-        <input type="text" class="form__input form__input_field_description" placeholder="Статус">
-        <button class="form__submit">Сохранить</button>
+      <button type="button" class="popup__close" title="Закрыть"></button>
+      <form name="newRecord" class="form" action="#" method="POST">
+        <h2 class="form__title">Редактировать профиль</h2>
+        <input type="text" name="profileName" class="form__input form__input_field_name" placeholder="Имя" required>
+        <input type="text" name="profileStatus" class="form__input form__input_field_description" placeholder="Статус" required>
+        <button type="submit" class="form__submit">Сохранить</button>
       </form>
     </div>
   </div>

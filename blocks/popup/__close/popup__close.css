@@ -6,8 +6,16 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
+  background-color: transparent;
+  border: none;
+  outline: none;
   right: -5px;
   top: -40px;
+  cursor: pointer;
+}
+
+.popup__close:hover {
+  opacity: .6;
   cursor: pointer;
 }
 

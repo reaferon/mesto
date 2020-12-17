@@ -1,9 +1,21 @@
 .gallery__photos {
   margin: 0 19px;
-
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 36px 0 0 0;
+  gap: 20px;
 }
+
+@media (min-width: 768px) {
+  .gallery__photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (min-width: 1024px) {
   .gallery__photos {
     margin: 0;
+    grid-template-columns: repeat(3, 1fr);
   }
 }

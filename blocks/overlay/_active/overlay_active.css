@@ -1,5 +1,6 @@
 .overlay_active {
   opacity: 1;
+  display: flex;
   visibility: visible;
   animation: overlay_on  .5s cubic-bezier(0.56, 0.1, 0.34, 0.91);
 }
