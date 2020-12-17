@@ -1,0 +1,8 @@
+.card__button_icon_trash {
+  grid-area: card-trash;
+  grid-row: 1/2;
+  align-self: start;
+  background-image: url(../../../../images/trash.svg);
+  margin: 18px 15px;
+  z-index: 2;
+}
