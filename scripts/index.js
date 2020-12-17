@@ -6,31 +6,29 @@ let form = document.querySelector('.form');
 let fieldName = document.querySelector('.form__input_field_name');
 let fieldDescription = document.querySelector('.form__input_field_description');
 let overlay = document.querySelector('.overlay');
+let avatar = document.querySelector('.lead__avatar');
 
-function open_form() {
+function openForm() {
   overlay.classList.toggle('overlay_active');
   fieldName.value = title.textContent;
   fieldDescription.value = subtitle.textContent;
 }
 
-function close_form() {
+function closeForm() {
   overlay.classList.toggle('overlay_active');
 }
 
 function handleForm (evt) {
-
   evt.preventDefault();
   title.textContent = fieldName.value;
   subtitle.textContent = fieldDescription.value;
-  document.querySelector('.lead__avatar').setAttribute('alt', fieldName.value + ', ' + fieldDescription.value);
-  close_form();
+  avatar.setAttribute('alt', fieldName.value + ', ' + fieldDescription.value);
+  closeForm();
 }
 
 /* Открытие PopUp */
-editProfileButton.addEventListener('click', open_form);
-
+editProfileButton.addEventListener('click', openForm);
 /* Закрытие PopUp */
-popupCloseButton.addEventListener('click', close_form);
-
+popupCloseButton.addEventListener('click', closeForm);
 /* Сохранение формы */
 form.addEventListener('submit', handleForm);
