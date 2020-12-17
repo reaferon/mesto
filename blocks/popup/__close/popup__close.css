@@ -1,10 +1,11 @@
 .popup__close {
   width: 26px;
   height: 26px;
-  background-image: url(../../../images/close.svg);
+  background-image: url(../../../images/plus.svg);
+  transform: rotate(-45deg);
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 26px 26px;
   position: absolute;
   background-color: transparent;
   border: none;
@@ -21,9 +22,10 @@
 
 @media (min-width: 768px) {
   .popup__close {
-    width: 40px;
-    height: 35px;
-    right: -30px;
-    top: -30px;
+    width: 48px;
+    height: 48px;
+    right: -40px;
+    top: -40px;
+    background-size: 40px 40px;
   }
 }
