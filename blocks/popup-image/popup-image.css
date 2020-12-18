@@ -1,5 +1,12 @@
 .popup-image {
+  min-width: 280px;
   max-width: 75vw;
   max-height: 75vh;
   background-color: transparent;
+}
+
+@media (min-width: 425px) {
+  .popup {
+    min-width: 400px;
+  }
 }
