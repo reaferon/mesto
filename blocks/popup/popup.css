@@ -5,6 +5,9 @@
   border-radius: 10px;
   z-index: 3;
   position: relative;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
 }
 
 @media (min-width: 768px) {

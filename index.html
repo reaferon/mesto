@@ -22,7 +22,7 @@
     </section>
     <section class="gallery">
       <ul class="gallery__photos">
-        <li class="card">
+        <!-- <li class="card">
           <h2 class="card__title">Беломорск</h2>
           <button type="button" class="card__button card__button_icon_like" aria-label="Нравится"></button>
           <button type="button" class="card__button card__button_icon_trash" aria-label="Удалить"></button>
@@ -57,7 +57,7 @@
           <button type="button" class="card__button card__button_icon_like" aria-label="Нравится"></button>
           <button type="button" class="card__button card__button_icon_trash" aria-label="Удалить"></button>
           <img src="./images/pskov.jpg" alt="Псков" class="card__img">
-        </li>
+        </li> -->
       </ul>
     </section>
   </main>
@@ -65,9 +65,9 @@
     <p class="footer__copy">&copy; 2020 Mesto Russia</p>
   </footer>
   <div class="overlay">
-    <div class="popup">
+    <div class="popup popup-profile">
       <button type="button" class="popup__close" aria-label="Закрыть"></button>
-      <form name="newRecord" class="form" action="#" method="POST">
+      <form name="editProfile" class="form" action="#" method="POST">
         <h2 class="form__title">Редактировать профиль</h2>
         <input type="text" name="profileName" class="form__input form__input_field_name" placeholder="Имя" required>
         <input type="text" name="profileStatus" class="form__input form__input_field_description" placeholder="Статус" required>
@@ -75,6 +75,35 @@
       </form>
     </div>
   </div>
+  <div class="overlay">
+    <div class="popup popup-newRecord">
+      <button type="button" class="popup__close" aria-label="Закрыть"></button>
+      <form name="newRecord" class="form-newRecord form" action="#" method="POST">
+        <h2 class="form__title">Новое место</h2>
+        <input type="text" name="newRecordName" class="form__input form__input_field_image-name" placeholder="Название" required>
+        <input type="text" name="newRecordUrl" class="form__input form__input_field_image-url" placeholder="Ссылка на картинку" required>
+        <button type="submit" class="form__submit">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="overlay">
+    <div class="popup popup-image">
+      <button type="button" class="popup__close" aria-label="Закрыть"></button>
+      <figure class="popup-image__wrapper">
+        <img class="popup-image__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="Заглушка">
+        <figcaption class="popup-image__caption">Заголовок</figcaption>
+      </figure>
+    </div>
+  </div>
+  <template id="card-template">
+    <li class="card">
+      <h2 class="card__title">Санкт-Петербург</h2>
+      <button type="button" class="card__button card__button_icon_like" aria-label="Нравится"></button>
+      <button type="button" class="card__button card__button_icon_trash" aria-label="Удалить"></button>
+      <img src="./images/piter.jpg" alt="Санкт-Петербург" class="card__img">
+    </li>
+
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
