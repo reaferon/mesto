@@ -92,7 +92,6 @@ function createCard(name = 'Место', link = 'https://pictures.s3.yandex.net/
     let cardLike = cardItem.querySelector('.card__button_icon_like');
     let cardImage = cardItem.querySelector('.card__img');
     
-
     cardTrash.addEventListener('click', function() {
       cardTrash.closest('.card').remove();
     });
