@@ -1,61 +1,61 @@
 const initialCards = [
   {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
   },
   {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
   },
   {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
   },
   {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
   },
   {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
   },
   {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-let cardTemplate = document.querySelector('#card-template').content;
-let gallery = document.querySelector('.gallery__photos');
-let editProfileButton = document.querySelector('.lead__button_type_edit');
-let popupWithProfile = document.querySelector('.popup-profile');
-let popupImage = document.querySelector('.popup-image');
-let popupImageSrc = popupImage.querySelector('.popup-image__image');
-let popupImageTitle = popupImage.querySelector('.popup-image__caption');
-let fieldName = document.querySelector('.form__input_field_name');
-let fieldDescription = document.querySelector('.form__input_field_description');
-let title =  document.querySelector('.lead__title');
-let subtitle =  document.querySelector('.lead__subtitle');
-let formProfile = document.querySelector('.form');
-let formNewRecord = document.querySelector('.form-newRecord');
-let profileCloseButton = popupWithProfile.querySelector('.popup__close');
-let imageCloseButton = popupImage.querySelector('.popup__close');
-let addRecordButton = document.querySelector('.lead__button_type_add');
-let popupNewRecord = document.querySelector('.popup-newRecord');
-let newRecordCloseButton = popupNewRecord.querySelector('.popup__close');
-let fieldImageName = popupNewRecord.querySelector('.form__input_field_image-name');
-let fieldImageUrl = popupNewRecord.querySelector('.form__input_field_image-url');
+const cardTemplate = document.querySelector('#card-template').content;
+const gallery = document.querySelector('.gallery__photos');
+const editProfileButton = document.querySelector('.lead__button_type_edit');
+const popupWithProfile = document.querySelector('.popup-profile');
+const popupImage = document.querySelector('.popup-image');
+const popupImageSrc = popupImage.querySelector('.popup-image__image');
+const popupImageTitle = popupImage.querySelector('.popup-image__caption');
+const fieldName = document.querySelector('.form__input_field_name');
+const fieldDescription = document.querySelector('.form__input_field_description');
+const title =  document.querySelector('.lead__title');
+const subtitle =  document.querySelector('.lead__subtitle');
+const formProfile = document.querySelector('.form');
+const formNewRecord = document.querySelector('.form-newRecord');
+const profileCloseButton = popupWithProfile.querySelector('.popup__close');
+const imageCloseButton = popupImage.querySelector('.popup__close');
+const addRecordButton = document.querySelector('.lead__button_type_add');
+const popupNewRecord = document.querySelector('.popup-newRecord');
+const newRecordCloseButton = popupNewRecord.querySelector('.popup__close');
+const fieldImageName = popupNewRecord.querySelector('.form__input_field_image-name');
+const fieldImageUrl = popupNewRecord.querySelector('.form__input_field_image-url');
 
 initialCards.forEach(item => {
   gallery.append(createCard(item.name, item.link));
 });
 editProfileButton.addEventListener('click', switchProfile);
-formProfile.addEventListener('submit', handleFormProfile);
+formProfile.addEventListener('submit', editFormProfile);
 profileCloseButton.addEventListener('click', switchProfile);
 imageCloseButton.addEventListener('click', switchImage);
 
 addRecordButton.addEventListener('click', switchNewRecord);
 newRecordCloseButton.addEventListener('click', switchNewRecord);
-formNewRecord.addEventListener('submit', handleNewRecord);
+formNewRecord.addEventListener('submit', addNewRecord);
 
 function switchProfile() {
   fieldName.value = title.textContent;
@@ -72,13 +72,13 @@ function switchNewRecord() {
   popupNewRecord.classList.toggle('popup_active');
 }
 
-function handleFormProfile(evt) {
+function editFormProfile(evt) {
   evt.preventDefault();
   title.textContent = fieldName.value;
   subtitle.textContent = fieldDescription.value;
   switchProfile();
 }
-function handleNewRecord(evt) {
+function addNewRecord(evt) {
   evt.preventDefault();
   gallery.prepend(createCard(fieldImageName.value, fieldImageUrl.value));
   fieldImageName.value = '';
@@ -87,10 +87,10 @@ function handleNewRecord(evt) {
 }
 
 function createCard(name = 'Место', link = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg') {
-    let cardItem = cardTemplate.cloneNode(true);
-    let cardTrash = cardItem.querySelector('.card__button_icon_trash');
-    let cardLike = cardItem.querySelector('.card__button_icon_like');
-    let cardImage = cardItem.querySelector('.card__img');
+    const cardItem = cardTemplate.cloneNode(true);
+    const cardTrash = cardItem.querySelector('.card__button_icon_trash');
+    const cardLike = cardItem.querySelector('.card__button_icon_like');
+    const cardImage = cardItem.querySelector('.card__img');
     
     cardTrash.addEventListener('click', function() {
       cardTrash.closest('.card').remove();
@@ -98,9 +98,9 @@ function createCard(name = 'Место', link = 'https://pictures.s3.yandex.net/
 
     cardLike.addEventListener('click', function (evt) {
         evt.target.classList.toggle('card__button_icon_like-fill');
-      });
+    });
 
-    cardImage.addEventListener('click', fullImage);
+    cardImage.addEventListener('click', getFullImage);
 
     cardItem.querySelector('.card__title').textContent = name;
     cardItem.querySelector('.card__img').src = link;
@@ -108,10 +108,10 @@ function createCard(name = 'Место', link = 'https://pictures.s3.yandex.net/
     return cardItem;
 }
 
-function fullImage(evt) {
-  let card = evt.target.closest('.card');
-  let image= card.querySelector('.card__img');
-  let title = card.querySelector('.card__title').textContent;
+function getFullImage(evt) {
+  const card = evt.target.closest('.card');
+  const image= card.querySelector('.card__img');
+  const title = card.querySelector('.card__title').textContent;
 
   popupImageSrc.src = image.src;
   popupImageSrc.alt = title;
