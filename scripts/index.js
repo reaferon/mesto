@@ -1,29 +1,3 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 const cardTemplate = document.querySelector('#card-template').content;
 const gallery = document.querySelector('.gallery__photos');
 const editProfileButton = document.querySelector('.lead__button_type_edit');
@@ -44,46 +18,51 @@ const popupNewRecord = document.querySelector('.popup-newRecord');
 const newRecordCloseButton = popupNewRecord.querySelector('.popup__close');
 const fieldImageName = popupNewRecord.querySelector('.form__input_field_image-name');
 const fieldImageUrl = popupNewRecord.querySelector('.form__input_field_image-url');
+const overlayNewRecord = document.querySelector('.overlay-newRecord');
+const overlayProfile = document.querySelector('.overlay-profile');
+const overlayImage = document.querySelector('.overlay-image');
 
 initialCards.forEach(item => {
   gallery.append(createCard(item.name, item.link));
 });
-editProfileButton.addEventListener('click', switchProfile);
+editProfileButton.addEventListener('click', openProfile);
 formProfile.addEventListener('submit', editFormProfile);
-profileCloseButton.addEventListener('click', switchProfile);
-imageCloseButton.addEventListener('click', switchImage);
-
-addRecordButton.addEventListener('click', switchNewRecord);
-newRecordCloseButton.addEventListener('click', switchNewRecord);
+profileCloseButton.addEventListener('click',  () => closePopup(overlayProfile));
+addRecordButton.addEventListener('click', openNewRecord);
+newRecordCloseButton.addEventListener('click', () => closePopup(overlayNewRecord));
 formNewRecord.addEventListener('submit', addNewRecord);
 
-function switchProfile() {
+function openPopup(overlay) {
+  overlay.classList.add('overlay_active');
+}
+
+function closePopup(overlay) {
+  overlay.classList.remove('overlay_active');
+}
+
+function openNewRecord() {
+  fieldImageName.value = '';
+  fieldImageUrl.value = '';
+  openPopup(overlayNewRecord);
+}
+
+function openProfile() {
   fieldName.value = title.textContent;
   fieldDescription.value = subtitle.textContent;
-  popupWithProfile.closest('.overlay').classList.toggle('overlay_active');
-  popupWithProfile.classList.toggle('popup_active');
-}
-function switchImage() {
-  popupImage.closest('.overlay').classList.toggle('overlay_active');
-  popupImage.classList.toggle('popup_active');
-}
-function switchNewRecord() {
-  popupNewRecord.closest('.overlay').classList.toggle('overlay_active');
-  popupNewRecord.classList.toggle('popup_active');
+  openPopup(overlayProfile);
 }
 
 function editFormProfile(evt) {
   evt.preventDefault();
   title.textContent = fieldName.value;
   subtitle.textContent = fieldDescription.value;
-  switchProfile();
+  closePopup(overlayProfile);
 }
+
 function addNewRecord(evt) {
   evt.preventDefault();
   gallery.prepend(createCard(fieldImageName.value, fieldImageUrl.value));
-  fieldImageName.value = '';
-  fieldImageUrl.value = '';
-  switchNewRecord();
+  closePopup(overlayNewRecord);
 }
 
 function createCard(name = 'Место', link = 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg') {
@@ -92,31 +71,29 @@ function createCard(name = 'Место', link = 'https://pictures.s3.yandex.net/
     const cardLike = cardItem.querySelector('.card__button_icon_like');
     const cardImage = cardItem.querySelector('.card__img');
     
-    cardTrash.addEventListener('click', function() {
-      cardTrash.closest('.card').remove();
-    });
-
-    cardLike.addEventListener('click', function (evt) {
-        evt.target.classList.toggle('card__button_icon_like-fill');
-    });
-
-    cardImage.addEventListener('click', getFullImage);
+    cardTrash.addEventListener('click', removeCard);
+    cardLike.addEventListener('click', likeCard);
+    cardImage.addEventListener('click', () => getFullImage(link, name));
+    imageCloseButton.addEventListener('click',  () => closePopup(overlayImage));
 
     cardItem.querySelector('.card__title').textContent = name;
-    cardItem.querySelector('.card__img').src = link;
-    cardItem.querySelector('.card__img').alt = name;
+    cardImage.src = link;
+    cardImage.alt = name;
     return cardItem;
 }
 
-function getFullImage(evt) {
-  const card = evt.target.closest('.card');
-  const image= card.querySelector('.card__img');
-  const title = card.querySelector('.card__title').textContent;
+function removeCard(evt) {
+  evt.target.closest('.card').remove();
+}
 
-  popupImageSrc.src = image.src;
-  popupImageSrc.alt = title;
-  popupImageTitle.textContent = title;
+function likeCard(evt) {
+  evt.target.classList.toggle('card__button_icon_like-fill');
+}
 
-  popupImage.closest('.overlay').classList.toggle('overlay_active');
-  popupImage.classList.toggle('popup_active');
+function getFullImage(link, name) {
+  popupImageSrc.src = link;
+  popupImageSrc.alt = name;
+  popupImageTitle.textContent = name;
+
+  openPopup(overlayImage);
 }

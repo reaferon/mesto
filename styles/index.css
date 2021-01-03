@@ -6,7 +6,6 @@
 @import url(../blocks/overlay/_active/overlay_active.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__close/popup__close.css);
-@import url(../blocks/popup/_active/popup_active.css);
 @import url(../blocks/popup-image/popup-image.css);
 @import url(../blocks/popup-image/__wrapper/popup-image__wrapper.css);
 @import url(../blocks/popup-image/__image/popup-image__image.css);
