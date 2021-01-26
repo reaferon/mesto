@@ -33,7 +33,9 @@
       <form name="editProfile" class="form" action="#" method="POST">
         <h2 class="form__title">Редактировать профиль</h2>
         <input type="text" name="profileName" class="form__input form__input_field_name" placeholder="Имя" required>
+        <span class="form__error" id="profileName-error"></span>
         <input type="text" name="profileStatus" class="form__input form__input_field_description" placeholder="Статус" required>
+        <span class="form__error" id="profileStatus-error"></span>
         <button type="submit" class="form__submit">Сохранить</button>
       </form>
     </div>
@@ -44,7 +46,9 @@
       <form name="newRecord" class="form-newRecord form" action="#" method="POST">
         <h2 class="form__title">Новое место</h2>
         <input type="text" name="newRecordName" class="form__input form__input_field_image-name" placeholder="Название" required>
+        <span class="form__error" id="newRecordName-error"></span>
         <input type="url" name="newRecordUrl" class="form__input form__input_field_image-url" placeholder="Ссылка на картинку" required>
+        <span class="form__error" id="newRecordUrl-error"></span>
         <button type="submit" class="form__submit">Создать</button>
       </form>
     </div>
@@ -67,6 +71,7 @@
     </li>
   </template>
   <script src="./scripts/data.js"></script>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
