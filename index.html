@@ -32,9 +32,9 @@
       <button type="button" class="popup__close" aria-label="Закрыть"></button>
       <form name="editProfile" class="form" action="#" method="POST">
         <h2 class="form__title">Редактировать профиль</h2>
-        <input type="text" name="profileName" class="form__input form__input_field_name" placeholder="Имя" required>
+        <input type="text" name="profileName" class="form__input form__input_field_name" placeholder="Имя" minlength="2" maxlength="40" autocomplete="off" required>
         <span class="form__error" id="profileName-error"></span>
-        <input type="text" name="profileStatus" class="form__input form__input_field_description" placeholder="Статус" required>
+        <input type="text" name="profileStatus" class="form__input form__input_field_description" placeholder="Статус" minlength="2" maxlength="200" autocomplete="off" required>
         <span class="form__error" id="profileStatus-error"></span>
         <button type="submit" class="form__submit">Сохранить</button>
       </form>
@@ -45,9 +45,9 @@
       <button type="button" class="popup__close" aria-label="Закрыть"></button>
       <form name="newRecord" class="form-newRecord form" action="#" method="POST">
         <h2 class="form__title">Новое место</h2>
-        <input type="text" name="newRecordName" class="form__input form__input_field_image-name" placeholder="Название" required>
+        <input type="text" name="newRecordName" class="form__input form__input_field_image-name" placeholder="Название" minlength="2" maxlength="30" autocomplete="off" required>
         <span class="form__error" id="newRecordName-error"></span>
-        <input type="url" name="newRecordUrl" class="form__input form__input_field_image-url" placeholder="Ссылка на картинку" required>
+        <input type="url" name="newRecordUrl" class="form__input form__input_field_image-url" placeholder="Ссылка на картинку" autocomplete="off" required>
         <span class="form__error" id="newRecordUrl-error"></span>
         <button type="submit" class="form__submit">Создать</button>
       </form>

@@ -12,7 +12,10 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__title/form__title.css);
 @import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__error/form__error.css);
 @import url(../blocks/form/__submit/form__submit.css);
+@import url(../blocks/form/__submit/_state/form__submit_state_disabled.css);
+
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);

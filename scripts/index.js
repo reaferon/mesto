@@ -43,12 +43,6 @@ function closePopup(overlay) {
   document.removeEventListener('keydown', escape);
 }
 
-function openNewRecord() {
-  fieldImageName.value = '';
-  fieldImageUrl.value = '';
-  openPopup(overlayNewRecord);
-}
-
 function openProfile() {
   fieldName.value = title.textContent;
   fieldDescription.value = subtitle.textContent;
@@ -60,6 +54,12 @@ function editFormProfile(evt) {
   title.textContent = fieldName.value;
   subtitle.textContent = fieldDescription.value;
   closePopup(overlayProfile);
+}
+
+function openNewRecord() {
+  fieldImageName.value = '';
+  fieldImageUrl.value = '';
+  openPopup(overlayNewRecord);
 }
 
 function addNewRecord(evt) {
@@ -103,9 +103,9 @@ function getFullImage(link, name) {
 
 function escape (evt) {
   const overlayActive = document.querySelector('.overlay_active')
-    if (evt.key === 'Escape') {
-      closePopup(overlayActive);
-    }
+  if (evt.key === 'Escape') {
+    closePopup(overlayActive);
+  }
 }
 
 overlays.forEach((item) => item.addEventListener('click', (evt) => {

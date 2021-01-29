@@ -1,0 +1,13 @@
+.form__error {
+  color: #ff0000;
+  font-size: 12px;
+  line-height: 15px;
+  max-width: 235px;
+  min-height: 30px;
+}
+
+@media (min-width: 768px) {
+  .form__error {
+    max-width: 325px;
+  }
+}
