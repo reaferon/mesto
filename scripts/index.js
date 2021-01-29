@@ -21,6 +21,7 @@ const fieldImageUrl = popupNewRecord.querySelector('.form__input_field_image-url
 const overlayNewRecord = document.querySelector('.overlay-newRecord');
 const overlayProfile = document.querySelector('.overlay-profile');
 const overlayImage = document.querySelector('.overlay-image');
+const overlays = Array.from(document.querySelectorAll('.overlay'));
 
 initialCards.forEach(item => {
   gallery.append(createCard(item.name, item.link));
@@ -34,16 +35,12 @@ formNewRecord.addEventListener('submit', addNewRecord);
 
 function openPopup(overlay) {
   overlay.classList.add('overlay_active');
+  document.addEventListener('keydown', escape)
 }
 
 function closePopup(overlay) {
   overlay.classList.remove('overlay_active');
-}
-
-function openNewRecord() {
-  fieldImageName.value = '';
-  fieldImageUrl.value = '';
-  openPopup(overlayNewRecord);
+  document.removeEventListener('keydown', escape);
 }
 
 function openProfile() {
@@ -57,6 +54,12 @@ function editFormProfile(evt) {
   title.textContent = fieldName.value;
   subtitle.textContent = fieldDescription.value;
   closePopup(overlayProfile);
+}
+
+function openNewRecord() {
+  fieldImageName.value = '';
+  fieldImageUrl.value = '';
+  openPopup(overlayNewRecord);
 }
 
 function addNewRecord(evt) {
@@ -97,3 +100,17 @@ function getFullImage(link, name) {
 
   openPopup(overlayImage);
 }
+
+function escape (evt) {
+  const overlayActive = document.querySelector('.overlay_active')
+  if (evt.key === 'Escape') {
+    closePopup(overlayActive);
+  }
+}
+
+overlays.forEach((item) => item.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('overlay')) {
+    item.classList.remove('overlay_active')
+    document.removeEventListener('keydown', escape)
+    }
+}))
