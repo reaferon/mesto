@@ -57,6 +57,11 @@ function editFormProfile(evt) {
 }
 
 function openNewRecord() {
+  const newRecordButton = formNewRecord.querySelector('.btn');
+  newRecordButton.classList.add('form__submit_state_disabled');
+  newRecordButton.disabled = true;
+  formNewRecord.reset();
+
   fieldImageName.value = '';
   fieldImageUrl.value = '';
   openPopup(overlayNewRecord);
