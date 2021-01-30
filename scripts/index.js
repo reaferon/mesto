@@ -32,6 +32,7 @@ profileCloseButton.addEventListener('click',  () => closePopup(overlayProfile));
 addRecordButton.addEventListener('click', openNewRecord);
 newRecordCloseButton.addEventListener('click', () => closePopup(overlayNewRecord));
 formNewRecord.addEventListener('submit', addNewRecord);
+imageCloseButton.addEventListener('click',  () => closePopup(overlayImage));
 
 function openPopup(overlay) {
   overlay.classList.add('overlay_active');
@@ -62,8 +63,6 @@ function openNewRecord() {
   newRecordButton.disabled = true;
   formNewRecord.reset();
 
-  fieldImageName.value = '';
-  fieldImageUrl.value = '';
   openPopup(overlayNewRecord);
 }
 
@@ -82,7 +81,7 @@ function createCard(name = 'Место', link = 'https://pictures.s3.yandex.net/
     cardTrash.addEventListener('click', removeCard);
     cardLike.addEventListener('click', likeCard);
     cardImage.addEventListener('click', () => getFullImage(link, name));
-    imageCloseButton.addEventListener('click',  () => closePopup(overlayImage));
+    
 
     cardItem.querySelector('.card__title').textContent = name;
     cardImage.src = link;
