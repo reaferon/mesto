@@ -30,7 +30,7 @@
   <div class="overlay overlay-profile">
     <div class="popup popup-profile">
       <button type="button" class="popup__close" aria-label="Закрыть"></button>
-      <form name="editProfile" class="form" action="#" method="POST">
+      <form name="editProfile" class="form form-profile" action="#" method="POST">
         <h2 class="form__title">Редактировать профиль</h2>
         <input type="text" name="profileName" class="form__input form__input_field_name" placeholder="Имя" minlength="2" maxlength="40" autocomplete="off" required>
         <span class="form__error" id="profileName-error"></span>
@@ -43,7 +43,7 @@
   <div class="overlay overlay-newRecord">
     <div class="popup popup-newRecord">
       <button type="button" class="popup__close" aria-label="Закрыть"></button>
-      <form name="newRecord" class="form-newRecord form" action="#" method="POST">
+      <form name="newRecord" class="form form-newRecord" action="#" method="POST">
         <h2 class="form__title">Новое место</h2>
         <input type="text" name="newRecordName" class="form__input form__input_field_image-name" placeholder="Название" minlength="2" maxlength="30" autocomplete="off" required>
         <span class="form__error" id="newRecordName-error"></span>
@@ -70,8 +70,8 @@
       <img src="./images/piter.jpg" alt="Санкт-Петербург" class="card__img">
     </li>
   </template>
-  <script src="./scripts/data.js"></script>
-  <script src="./scripts/validate.js"></script>
-  <script src="./scripts/index.js"></script>
+  <!-- <script src="./scripts/data.js"></script>
+  <script src="./scripts/validate.js"></script> -->
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
