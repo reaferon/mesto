@@ -31,6 +31,7 @@ const initialCards = [
 const gallery = document.querySelector('.gallery__photos');
 const editProfileButton = document.querySelector('.lead__button_type_edit');
 const popupWithProfile = document.querySelector('.popup-profile');
+const overlayImage = document.querySelector('.overlay-image');
 const popupImage = document.querySelector('.popup-image');
 const popupImageSrc = popupImage.querySelector('.popup-image__image');
 const popupImageTitle = popupImage.querySelector('.popup-image__caption');
@@ -61,9 +62,7 @@ const valudateFields = {
 };
 
 initialCards.forEach(item => {
-  const card = new Card(item, '#card-template');
-  const cardElement = card.getHtml();
-  gallery.append(cardElement);
+  gallery.append(createCard(item));
 })
 
 const editFormValidator = new FormValidator(valudateFields, formProfile);
@@ -72,20 +71,33 @@ editFormValidator.enableValidation();
 const addFormValidator = new FormValidator(valudateFields, formNewRecord);
 addFormValidator.enableValidation();
 
-function openPopup(overlay) {
-  overlay.classList.add('overlay_active');
+function openPopup (popup) {
+  popup.classList.add('overlay_active');
   document.addEventListener('keydown', escape)
 }
 
-function closePopup(overlay) {
-  overlay.classList.remove('overlay_active');
-  document.removeEventListener('keydown', escape);
+function closePopup (popup) {
+  popup.classList.remove('overlay_active')
+  document.removeEventListener('keydown', escape)
 }
+
+const popups = document.querySelectorAll('.overlay')
+
+popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('overlay_active') || evt.target.classList.contains('popup__close')) {
+            closePopup(popup)
+        }
+    })
+})
 
 function openProfile() {
   fieldName.value = title.textContent;
   fieldDescription.value = subtitle.textContent;
+  const editFormValidator = new FormValidator(valudateFields, formProfile)
+  editFormValidator.resetValidation()
   openPopup(overlayProfile);
+ //editFormValidator.resetValidation()
 }
 
 function editFormProfile(evt) {
@@ -100,6 +112,9 @@ function openNewRecord() {
   newRecordButton.classList.add('form__submit_state_disabled');
   newRecordButton.disabled = true;
   formNewRecord.reset();
+
+  const newRecordFormValidator = new FormValidator(valudateFields, formNewRecord)
+  newRecordFormValidator.resetValidation()
 
   openPopup(overlayNewRecord);
 }
@@ -138,4 +153,4 @@ newRecordCloseButton.addEventListener('click', () => closePopup(overlayNewRecord
 formNewRecord.addEventListener('submit', addNewRecord);
 
 
-export { popupImage, popupImageSrc, popupImageTitle };
+export { openPopup, closePopup, overlayImage,  popupImage, popupImageSrc, popupImageTitle };

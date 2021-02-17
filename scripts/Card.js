@@ -1,5 +1,4 @@
-import { popupImage, popupImageSrc, popupImageTitle } from './index.js';
-import { openPopup } from './Popup.js';
+import { openPopup, closePopup, overlayImage, popupImage, popupImageSrc, popupImageTitle } from './index.js';
 
 class Card {
     constructor(data, cardSelector) {
@@ -34,7 +33,7 @@ class Card {
         popupImageSrc.alt = this._name;
         popupImageTitle.textContent = this._name;
 
-        openPopup(popupImage, '.overlay-image')
+        openPopup(overlayImage, '.overlay-image')
     }
 
     _setEventListeners() {
