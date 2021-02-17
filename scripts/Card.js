@@ -1,4 +1,3 @@
-//import { openPopup } from './popup.js';
 import { popupImage, popupImageSrc, popupImageTitle } from './index.js';
 import { openPopup } from './Popup.js';
 
@@ -9,7 +8,7 @@ class Card {
         this._cardSelector = cardSelector;
         this._openPopupPhoto = this._openPopupPhoto.bind(this);
     }
-    
+
     _getTemplate() {
         const cardTemplate = document
         .querySelector(this._cardSelector)
@@ -19,7 +18,7 @@ class Card {
         return cardTemplate;
     }
 
-    getView() {
+    getHtml() {
         this._view = this._getTemplate();
         this._view.querySelector('.card__title').textContent = this._name;
         this._setEventListeners();
@@ -30,6 +29,7 @@ class Card {
     }
 
     _openPopupPhoto() {
+        popupImageSrc.src = '';
         popupImageSrc.src = this._link;
         popupImageSrc.alt = this._name;
         popupImageTitle.textContent = this._name;
