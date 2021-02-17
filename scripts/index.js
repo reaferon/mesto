@@ -94,7 +94,6 @@ popups.forEach((popup) => {
 function openProfile() {
   fieldName.value = title.textContent;
   fieldDescription.value = subtitle.textContent;
-  const editFormValidator = new FormValidator(valudateFields, formProfile)
   editFormValidator.resetValidation()
   openPopup(overlayProfile);
  //editFormValidator.resetValidation()
@@ -113,8 +112,7 @@ function openNewRecord() {
   newRecordButton.disabled = true;
   formNewRecord.reset();
 
-  const newRecordFormValidator = new FormValidator(valudateFields, formNewRecord)
-  newRecordFormValidator.resetValidation()
+  addFormValidator.resetValidation()
 
   openPopup(overlayNewRecord);
 }
