@@ -1,0 +1,18 @@
+.lead__description {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+}
+
+@media screen and (max-width: 796px) {
+    .lead__description {
+      margin-bottom: 36px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .lead__description {
+      font-size: 14px;
+    }
+}

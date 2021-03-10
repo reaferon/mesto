@@ -1,0 +1,15 @@
+.lead__info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 30px;
+    align-items: baseline;
+    max-width: 380px;
+    width: 100%;
+}
+
+@media screen and (max-width:796px) {
+    .lead__info {
+      justify-content: center;
+      max-width: 580px;
+    }
+}

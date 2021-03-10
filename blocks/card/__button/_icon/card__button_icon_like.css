@@ -1,5 +1,0 @@
-.card__button_icon_like {
-  grid-area: card-like;
-  background-image: url(../../../../images/like.svg);
-  transition: .5s ease;
-} 

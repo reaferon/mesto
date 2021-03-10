@@ -1,0 +1,32 @@
+
+@import url('__avatar/lead__avatar.css');
+@import url('__info/lead__info.css');
+@import url('__name/lead__name.css');
+@import url('__edit-button/lead__edit-button.css');
+@import url('__description/lead__descritpion.css');
+@import url('__add-button/lead__add-button.css');
+
+
+.lead {
+  max-width: 882px;
+  margin: 0 auto;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  
+}
+
+@media screen and (max-width: 900px) {
+  .lead {
+   padding-left: 27px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .lead {
+    flex-direction: column;
+    padding: 0;
+    margin-bottom: 36px;
+  }
+}
+

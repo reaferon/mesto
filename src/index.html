@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mesto</title>
+  </head>
+  <body class="body">
+    <header class="header">
+      <img class="header__logo" src="images/header-logo.svg" alt="логотип" />
+    </header>
+    <main class="content">
+      <section class="lead">
+        <img class="lead__avatar" src="./images/profile-avatar.jpg" alt="Аватар" />
+        <div class="lead__info">
+          <h1 class="lead__name">Жак-Ив Кусто</h1>
+          <button class="lead__edit-button" type="button"></button>
+          <p class="lead__description">Исследователь океана</p>
+        </div>
+        <button class="lead__add-button" type="button"></button>
+      </section>
+      <section class="cards">
+        <ul class="cards__container">
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copy">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <div class="popup popup-edit">
+      <div class="popup__container">
+        <button aria-label="кнопка закрыть" type="button" class="popup__close-button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form action="#" name="popup-form" class="popup__form popup-edit__form" novalidate>
+          <fieldset class="popup__input-container">
+            <input required minlength="2" maxlength="40" autocomplete="off" name="name" type="text" value="" placeholder="Жак-Ив Кусто" class="popup__text popup__text_type_name" />
+            <span class="popup__error" id="name-error"></span>
+            <input required minlength="2" maxlength="200" autocomplete="off" name="description" type="text" value="" placeholder="Исследователь океана" class="popup__text popup__text_type_description" />
+            <span class="popup__error" id="description-error"></span>
+            <button type="submit" class="popup__submit popup__submit-button_disabled" disabled>Сохранить</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup-image">
+      <div class="popup__container">
+        <button aria-label="кнопка закрыть" type="button" class="popup__close-button"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form action="#" name="popup-form" class="popup__form popup-image__form">
+          <fieldset class="popup__input-container">
+            <input required minlength="1" maxlength="30" autocomplete="off" name="title" type="text" value="" placeholder="Название" class="popup__text popup__text_type_title" />
+            <span class="popup__error" id="title-error"></span>
+            <input required autocomplete="off" name="link" type="url" value="" placeholder="Ссылка на картинку" class="popup__text popup__text_type_link" />
+            <span class="popup__error" id="link-error"></span>
+            <button type="submit" class="popup__submit popup__submit-button_disabled" disabled>Создать</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup-photo">
+      <div class="popup__photo-container">
+        <button aria-label="кнопка закрыть" type="button" class="popup__close-button"></button>
+        <img class="popup__img" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="" />
+        <h2 class="popup__title-photo">Архыз</h2>
+      </div>
+    </div>
+    <template id="card-template">
+      <li class="cards__element">
+        <img class="cards__element-img" src="#" alt="" />
+        <button class="cards__element-remove" type="button" title="Удалить"></button>
+        <div class="cards__description">
+          <h2 class="cards__element-title"></h2>
+          <button class="cards__element-button" type="button" title="Нравится"></button>
+        </div>
+      </li>
+    </template>
+  </body>
+</html>
