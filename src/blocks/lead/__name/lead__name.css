@@ -1,0 +1,20 @@
+.lead__name {
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 56px;
+    margin: 0;
+
+}
+
+@media screen and (max-width: 796px) {
+    .lead__name {
+      margin-bottom: 14px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .lead__name {
+      font-size: 27px;
+      
+    }
+}

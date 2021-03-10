@@ -1,0 +1,11 @@
+.lead__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 796px) {
+    .lead__avatar {
+      margin-bottom: 10px;
+    }
+}
