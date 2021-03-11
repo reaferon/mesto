@@ -1,16 +1,16 @@
-import "./pages/index.css";
+import "./index.css";
 
-import Card from "./scripts/components/Card.js";
+import Card from "../scripts/components/Card.js";
 
-import PopupWithImage from "./scripts/components/PopupWithImage.js";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
 
-import PopupWithForm from "./scripts/components/PopupWithForm.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
 
-import Section from "./scripts/components/Section.js";
+import Section from "../scripts/components/Section.js";
 
-import UserInfo from "./scripts/components/UserInfo.js";
+import UserInfo from "../scripts/components/UserInfo.js";
 
-import FormValidator from "./scripts/components/FormValidator.js";
+import FormValidator from "../scripts/components/FormValidator.js";
 
 const initialCards = [
   {
@@ -48,7 +48,7 @@ const initialCards = [
 const valObj = {
   formSelector: ".popup__form",
   inputSelector: ".popup__text",
-  submitButtonSelector: ".popup__submit-button",
+  submitButtonSelector: ".popup__submit-button_selector",
   activeButtonClass: "popup__submit-button",
   inactiveButtonClass: "popup__submit-button_disabled",
   inputErrorClass: "popup__error",
@@ -100,7 +100,7 @@ const addFormValidator = new FormValidator(valObj, popupAddForm);
 addFormValidator.enableValidation();
 
 function buttonEdit(element) {
-  const saveButton = element.querySelector(".popup__submit-button");
+  const saveButton = element.querySelector(".popup__submit-button_selector");
   saveButton.classList.add("popup__submit-button_disabled");
   saveButton.disabled = true;
 }
