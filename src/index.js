@@ -82,11 +82,11 @@ const popupAddForm = popupAdd.querySelector(".popup__form");
 const popups = Array.from(document.querySelectorAll(".popup"));
 
 const imageFormElement = popups.find((image) =>
-  image.querySelector(".popup-image__form")
+  image.querySelector(".popup__form_image")
 );
 
 const editFormElement = popups.find((edit) =>
-  edit.querySelector(".popup-edit__form")
+  edit.querySelector(".popup__form_edit")
 );
 
 const userData = new UserInfo({
