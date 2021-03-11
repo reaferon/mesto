@@ -68,7 +68,7 @@ const profileDescription = profile.querySelector(".lead__description");
 const editButton = profile.querySelector(".lead__edit-button");
 const addButton = profile.querySelector(".lead__add-button");
 
-const popupEdit = document.querySelector(".popup-edit");
+const popupEdit = document.querySelector(".popup_edit");
 const popupEditForm = popupEdit.querySelector(".popup__form");
 
 const text = popupEdit.querySelector(".popup__text_type_name");
@@ -76,7 +76,7 @@ const description = popupEdit.querySelector(".popup__text_type_description");
 
 const template = "#card-template";
 
-const popupAdd = document.querySelector(".popup-image");
+const popupAdd = document.querySelector(".popup_image");
 const popupAddForm = popupAdd.querySelector(".popup__form");
 
 const popups = Array.from(document.querySelectorAll(".popup"));
