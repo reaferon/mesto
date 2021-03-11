@@ -48,7 +48,7 @@ const initialCards = [
 const valObj = {
   formSelector: ".popup__form",
   inputSelector: ".popup__text",
-  submitButtonSelector: ".popup__submit-button_selector",
+  submitButtonSelector: ".popup__submit-button",
   activeButtonClass: "popup__submit-button",
   inactiveButtonClass: "popup__submit-button_disabled",
   inputErrorClass: "popup__error",
@@ -100,7 +100,7 @@ const addFormValidator = new FormValidator(valObj, popupAddForm);
 addFormValidator.enableValidation();
 
 function buttonEdit(element) {
-  const saveButton = element.querySelector(".popup__submit-button_selector");
+  const saveButton = element.querySelector(".popup__submit-button");
   saveButton.classList.add("popup__submit-button_disabled");
   saveButton.disabled = true;
 }
