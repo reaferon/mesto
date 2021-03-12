@@ -1,5 +1,7 @@
 import "./index.css";
 
+import {initialCards,valObj} from "../utils/constants.js"
+
 import Card from "../scripts/components/Card.js";
 
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
@@ -11,49 +13,6 @@ import Section from "../scripts/components/Section.js";
 import UserInfo from "../scripts/components/UserInfo.js";
 
 import FormValidator from "../scripts/components/FormValidator.js";
-
-const initialCards = [
-  {
-    name: "Архыз",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-
-const valObj = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__text",
-  submitButtonSelector: ".popup__submit-button_selector",
-  activeButtonClass: "popup__submit-button",
-  inactiveButtonClass: "popup__submit-button_disabled",
-  inputErrorClass: "popup__error",
-  errorClass: "popup__error_visible",
-};
 
 const popupPhoto = document.querySelector(".popup-photo");
 const popupImg = popupPhoto.querySelector(".popup__img");
@@ -143,7 +102,7 @@ const cardsList = new Section(
 cardsList.renderItems();
 
 const editPopup = new PopupWithForm({
-  popupSelector: popupEdit,
+  popupSelector: ".popup_edit",
   handleFormSubmit: (item) => {
     userData.setUserInfo(item.name, item.description);
   },
@@ -152,9 +111,9 @@ const editPopup = new PopupWithForm({
 editPopup.setEventListeners();
 
 const addPopup = new PopupWithForm({
-  popupSelector: popupAdd,
+  popupSelector: ".popup_edit",
   handleFormSubmit: () => {
-    const inputData = addPopup._getInputValues();
+    const inputData = addPopup.getInputValues();
 
     const newPlaceData = {
       name: inputData.title,
@@ -169,7 +128,7 @@ const addPopup = new PopupWithForm({
 
 addPopup.setEventListeners();
 
-const imgPopup = new PopupWithImage(popupPhoto, popupImg, popupTitle);
+const imgPopup = new PopupWithImage(".popup-photo", popupImg, popupTitle);
 
 imgPopup.setEventListeners();
 
